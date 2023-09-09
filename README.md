@@ -32,7 +32,8 @@ Tables:
 
 ## Usage
 ```php
-if (GPPerms::CanRank(Auth::id(), 'Rank Name or ID')) {
+// User MUST be logged in and set in the database to the right rank
+if (GPPerms::CanRank('Rank Name or ID')) {
 	// code here if approved
 }
 $returnedstring = GPPerms::AddorUpdateUser($user->id, "Rank Name or ID");

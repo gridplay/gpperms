@@ -1,6 +1,7 @@
 <?php
 namespace GPPerms;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use GPRanks;
 class GPPerms extends Model {
 	protected $table = 'gpperms_users';
@@ -8,15 +9,17 @@ class GPPerms extends Model {
 	public $timestamps = false;
 	protected $guarded = [];
 
-	// GPPerms::CanRank(Auth::id(), 'Rank name or ID');
-	public static function CanRank($userid, $rank): bool
+	// GPPerms::CanRank('Rank name or ID');
+	public static function CanRank($rank): bool
 	{
-		if (is_string($rank)) {
-			$rank = GPRanks::GetRankID($rank);
-		}
-		if ($u = self::where('user_id', $userid)->first()) {
-			if ($u->rank_id == $rank) {
-				return true;
+		if (Auth::check()) {
+			if (is_string($rank)) {
+				$rank = GPRanks::GetRankID($rank);
+			}
+			if ($u = self::where('user_id', Auth::id())->first()) {
+				if ($u->rank_id == $rank) {
+					return true;
+				}
 			}
 		}
 		return false;
