@@ -32,14 +32,11 @@ Tables:
 
 ## Usage
 ```php
-if (GPPerms::CanRank(Auth::id(), 'Premium')) {
+if (GPPerms::CanRank(Auth::id(), 'Rank Name or ID')) {
 	// code here if approved
 }
-$returnedstring = GPPerms::Add($user->id, "Rank Name or ID");
+$returnedstring = GPPerms::AddorUpdate($user->id, "Rank Name or ID");
 var_dump($returnedstring); // will say what has happened
-
-$updatedstring = GPPerms::Update($user->id, "Rank Name or ID");
-// same thing as above eh
 
 $rank_id = GPRanks::AddorUpdateRankName($rank_name, $optional_id);
 // $optional_id is ONLY for updating, can be empty
