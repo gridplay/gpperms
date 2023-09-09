@@ -14,4 +14,15 @@ class GPRanks extends Model {
 		}
 		return -1;
 	}
+	// GPRanks::AddorUpdateRankName($rank_name, $optional_id);
+	// $optional_id is ONLY for updating $rank_name
+	public static function AddorUpdateRankName($rname, $rid = 0): integer
+	{
+		if ($r = self::where('rank_id', $rid)->first()) {
+			self::where('rank_id', $rid)->update(['rank_name' => $rname]);
+			return $rid;
+		}else{
+			return self::insertGetId(['rank_name' => $rname]);
+		}
+	}
 }
