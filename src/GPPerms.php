@@ -21,8 +21,8 @@ class GPPerms extends Model {
 		}
 		return false;
 	}
-	// GPPerms::AddorUpdate($user_id, 'Rank Name or ID');
-	public static function AddorUpdate($user_id, $rank): string
+	// GPPerms::AddorUpdateUser($user_id, 'Rank Name or ID');
+	public static function AddorUpdateUser($user_id, $rank): string
 	{
 		if (is_string($rank)) {
 			$rank = GPRanks::GetRankID($rank);
@@ -34,6 +34,6 @@ class GPPerms extends Model {
 			self::insert(['user_id' => $user_id, 'rank_id' => $rank, 'added' => time()]);
 			return "User added with rank ID ".$rank;
 		}
-		return "Adding derp";
+		return "Adding/Updating derp";
 	}
 }

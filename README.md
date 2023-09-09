@@ -35,7 +35,7 @@ Tables:
 if (GPPerms::CanRank(Auth::id(), 'Rank Name or ID')) {
 	// code here if approved
 }
-$returnedstring = GPPerms::AddorUpdate($user->id, "Rank Name or ID");
+$returnedstring = GPPerms::AddorUpdateUser($user->id, "Rank Name or ID");
 var_dump($returnedstring); // will say what has happened
 
 $rank_id = GPRanks::AddorUpdateRankName($rank_name, $optional_id);
