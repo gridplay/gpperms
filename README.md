@@ -53,4 +53,5 @@ $rank_id = GPPerms::AddorUpdateRankName($rank_name, $optional_id);
 $rank_id = GPPerms::AddorUpdateRankName($rank_name);
 
 $rank_name = GPPerms::GetRankName($rank_id);
+$rank_id = GPPerms::GetRankID($rank_name);
 ```
