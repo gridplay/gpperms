@@ -10,9 +10,10 @@ class GPPermsServiceProvider extends ServiceProvider {
     public function provides() {
         return ['gpperms'];
     }
-    public function boot() {
+    public function boot(): void
+    {
         $this->publishes([
             __DIR__.'/../database/migrations/create_gpperms.php' => database_path('migrations/create_gpperms.php'),
-        ], 'migrations');
+        ], 'gpperms-migrations');
     }
 }

@@ -2,7 +2,7 @@
     "name": "gridplay/gpperms",
     "type": "library",
     "description": "GridPlay Permissions System",
-    "keywords": ["gridplay","permissions"],
+    "keywords": ["gridplay","permissions","ranks"],
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +11,7 @@
             "homepage": "https://github.com/Chrisx84"
         }
     ],
-    "homepage": "https://github.com",
+    "homepage": "https://github.com/gridplay/gpperms",
     "require": {
         "php": "^8.0",
         "illuminate/auth": "^8.12|^9.0|^10.0",
@@ -33,8 +33,7 @@
                 "GPPerms\\GPPermsServiceProvider"
             ],
             "aliases": {
-                "GPPerms": "GPPerms\\GPPerms",
-                "GPRanks": "GPPerms\\GPRanks"
+                "GPPerms": "GPPerms\\GPPerms"
             }
 
         }
