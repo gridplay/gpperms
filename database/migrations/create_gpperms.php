@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('gpperms_users', function (Blueprint $table) {
             $table->bigInteger('user_id');
-            $table->int('rank_id');
+            $table->integer('rank_id');
             $table->bigInteger('added');
             $table->bigInteger('changed');
         });
