@@ -50,7 +50,7 @@ class GPPerms extends Model {
 	}
 	// converts rank name to id
 	// GPPerms::GetRankID($rankname);
-	public static function GetRankID($rankname): integer
+	public static function GetRankID($rankname): int
 	{
 		if ($r = DB::table(self::$GPRANK_TABLE)->where('rank_name', $rankname)->first()) {
 			return $r->rank_id;
@@ -59,7 +59,7 @@ class GPPerms extends Model {
 	}
 	// GPPerms::AddorUpdateRankName($rank_name, $optional_id);
 	// $optional_id is ONLY for updating $rank_name or if rank_id is NOT auto incremented
-	public static function AddorUpdateRankName($rname, $rid = 0): integer
+	public static function AddorUpdateRankName($rname, $rid = 0): int
 	{
 		if ($r = DB::table(self::$GPRANK_TABLE)->where('rank_id', $rid)->first()) {
 			DB::table(self::$GPRANK_TABLE)->where('rank_id', $rid)->update(['rank_name' => $rname]);
