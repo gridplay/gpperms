@@ -73,4 +73,12 @@ class GPPerms extends Model {
 			}
 		}
 	}
+	// GPPerms::GetRanks();
+	public static function GetRanks() {
+		$r = [];
+		foreach (DB::table(self::$GPRANK_TABLE)->get() as $ranks) {
+			$r[$ranks->rank_id] = $ranks->rank_name;
+		}
+		return $r;
+	}
 }
