@@ -25,6 +25,16 @@ class GPPerms extends Model {
 		}
 		return false;
 	}
+	// GPPerms::HasRank($user_id);
+	public static function HasRank($user_id = '') {
+		if (empty($user_id)) {
+			 $user_id = Auth::id();
+		}
+		if ($p = self::where('user_id', $user_id)->first()) {
+			return $p->rank_id;
+		}
+		return 0;
+	}
 	// GPPerms::AddorUpdateUser($user_id, 'Rank Name or ID');
 	public static function AddorUpdateUser($user_id, $rank): string
 	{
